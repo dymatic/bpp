@@ -1,0 +1,29 @@
+####Bash PreProcessor sample file -- Generates a home directory layout
+|home
+||Documents
+|||Presentations
+|||^presentation.tex
+|||~{presentation.tex:
+\documentclass[beamer]
+\begin{document}
+\section{This is written to the file}
+\frame{{\frametitle Anything that you write here}
+  Will appear in presentation.tex
+}
+\end{document}
+||Pictures
+||Programs
+|||hWorld.c
+|||~hWorld.c: #include <stdio.h>
+|||~hWorld.c: #include <cstdlib>
+|||~hWorld.c: void main(void){printf("Hello World"); return 0;}
+|||%chmod +x hWorld.c
+|||%mv ./a.out helloWorld
+|||%./helloWorld
+####General synopsis of commands:
+{####} Anywhere in the line, creates a comment.
+{%} Executes a shell command at the current location in the file system ####
+{~file: contents} Writes the contents to a file using append.           ####
+{{~file: blah NEWLINE blah NEWLINE blah NEWLINE }} Writes all of the lines in between brackets to a file. ####
+{|,||,(||| / 0)} Nests directories and files within one another.        ####
+#################################################################################################################
